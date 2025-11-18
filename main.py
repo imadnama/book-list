@@ -6,6 +6,7 @@ app = FastAPI()
 class Book(BaseModel):
     title: str
     author: str
+    year: int #Imad Nama Added Year under branch Year
 
 books = []
 counter = 1
@@ -34,7 +35,7 @@ def add_book(book: Book):
     return new_book
 
 @app.delete("/books/{book_id}")
-def delete_book(book_id: int):
+def delete_book(book_id: int): #Imad Nama
     for book in books:
         if book["id"] == book_id:
             books.remove(book)
